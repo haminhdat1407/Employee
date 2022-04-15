@@ -3,7 +3,6 @@ import apiEmployees from './api/apiEmployee';
 import { Col, Row } from 'antd';
 import EmployeeList from './components/EmployeeList';
 import ModalForm from './components/AddForm';
-
 import './App.css';
 
 function App() {

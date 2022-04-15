@@ -4,7 +4,6 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Typography } from 'antd';
-import '/Employee/frontend/src/components/AddForm/style.css';
 const { Text } = Typography;
 
 ModalForm.propTypes = {
@@ -15,6 +14,7 @@ ModalForm.propTypes = {
 function ModalForm({ onChange, errorMessage }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [dataForm, setDataForm] = useState();
+  console.log(errorMessage);
 
   const onFinish = (e) => {
     const newEmployee = {

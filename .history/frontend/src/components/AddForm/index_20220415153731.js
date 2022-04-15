@@ -155,8 +155,8 @@ function ModalForm({ onChange, errorMessage }) {
           <Form.Item style={{ marginLeft: '58px' }}>
             <Button
               block
+              className='ant-btn.ant-btn-block'
               htmlType='submit'
-              style={{ backgroundColor: 'aqua' }}
               onClick={handleSubmit}
             >
               Submit

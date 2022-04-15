@@ -13,7 +13,7 @@ import {
 } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import '/Employee/frontend/src/components/EmployeeList/style.css';
+
 const { Text } = Typography;
 
 const { confirm } = Modal;
@@ -123,7 +123,7 @@ function EmployeeList({ data, onRemove, onEdit, errorMessage }) {
   return (
     <>
       <Table
-        className='ant-table-wrapper'
+        style={{ width: '95%', margin: '0 auto' }}
         dataSource={data}
         columns={columns}
       ></Table>
@@ -255,10 +255,10 @@ function EmployeeList({ data, onRemove, onEdit, errorMessage }) {
               rules={[
                 {
                   required: true,
-                  message: 'Age must be older from 18 to 60 age !',
+                  message: 'Age must be older from 0 to 120 age !',
                   type: 'number',
-                  min: 18,
-                  max: 60,
+                  min: 0,
+                  max: 120,
                 },
               ]}
             >

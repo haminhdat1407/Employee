@@ -46,6 +46,7 @@ export const updateEmployee = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Email or Phone number already using.',
+      s,
     });
   }
   try {

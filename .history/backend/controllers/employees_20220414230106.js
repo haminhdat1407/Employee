@@ -42,12 +42,13 @@ export const createEmployee = async (req, res) => {
 };
 //update
 export const updateEmployee = async (req, res) => {
-  if (await checkExistAccount(req.body.Email, req.body.Phone)) {
-    res.status(500).json({
-      success: false,
-      message: 'Email or Phone number already using.',
-    });
-  }
+  // if (await checkExistAccount(req.body.Email, req.body.Phone)) {
+  //   res.status(500).json({
+  //     success: false,
+  //     message: 'Email or Phone number already using.',
+  //     s,
+  //   });
+  // }
   try {
     const id = req.params.employeeID;
     const updateObject = req.body;

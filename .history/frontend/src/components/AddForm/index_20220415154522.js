@@ -156,7 +156,7 @@ function ModalForm({ onChange, errorMessage }) {
             <Button
               block
               htmlType='submit'
-              style={{ backgroundColor: 'aqua' }}
+              // style={{ backgroundColor: 'aqua' }}
               onClick={handleSubmit}
             >
               Submit

@@ -3,8 +3,9 @@ import apiEmployees from './api/apiEmployee';
 import { Col, Row } from 'antd';
 import EmployeeList from './components/EmployeeList';
 import ModalForm from './components/AddForm';
-
+import Login from './components/Login';
 import './App.css';
+import { Routes, Router, Route } from 'react-router-dom';
 
 function App() {
   const [employeeList, setEmployeeList] = useState([]);
@@ -65,21 +66,34 @@ function App() {
   };
   return (
     <>
-      <Row className='header'>
-        <Col xs={2} sm={4} md={6} lg={8} xl={10}>
-          <ModalForm onChange={handleAddStudent} errorMessage={errorMessage} />
-        </Col>
-        <Col xs={20} sm={16} md={12} lg={8} xl={4}>
-          EMPLOYEE LIST
-        </Col>
-      </Row>
-      <EmployeeList
-        style={{ marginTop: '50px' }}
-        data={employeeList}
-        onRemove={handleDeleteEmployee}
-        onEdit={handleEditStudent}
-        errorMessage={errorMessage}
-      />
+      <Routes>
+        <Route path='/Login' element={<Login />} />
+        <Route
+          path='/employee'
+          element={
+            <>
+              <Row className='header'>
+                <Col xs={2} sm={4} md={6} lg={8} xl={10}>
+                  <ModalForm
+                    onChange={handleAddStudent}
+                    errorMessage={errorMessage}
+                  />
+                </Col>
+                <Col xs={20} sm={16} md={12} lg={8} xl={4}>
+                  EMPLOYEE LIST
+                </Col>
+              </Row>
+              <EmployeeList
+                style={{ marginTop: '50px' }}
+                data={employeeList}
+                onRemove={handleDeleteEmployee}
+                onEdit={handleEditStudent}
+                errorMessage={errorMessage}
+              />
+            </>
+          }
+        />
+      </Routes>
     </>
   );
 }

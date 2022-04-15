@@ -153,12 +153,7 @@ function ModalForm({ onChange, errorMessage }) {
           </Form.Item>
 
           <Form.Item style={{ marginLeft: '58px' }}>
-            <Button
-              block
-              htmlType='submit'
-              style={{ backgroundColor: 'aqua' }}
-              onClick={handleSubmit}
-            >
+            <Button block htmlType='submit' onClick={handleSubmit}>
               Submit
             </Button>
           </Form.Item>
