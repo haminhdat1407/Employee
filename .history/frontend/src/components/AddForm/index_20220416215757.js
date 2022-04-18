@@ -158,7 +158,6 @@ function ModalForm({ onChange, errorMessage }) {
               htmlType='submit'
               style={{ backgroundColor: 'aqua' }}
               onClick={handleSubmit}
-              className='ant-btn-primary'
             >
               Submit
             </Button>

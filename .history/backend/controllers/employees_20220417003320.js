@@ -29,9 +29,10 @@ const checkTypeDelete = async (gender) => {
     if (emp.Gender === gender) {
       isFemale = true;
     }
-    return isFemale;
   });
+  return isFemale;
 };
+checkTypeDelete('Female');
 
 //all
 export const getEmployees = async (req, res) => {

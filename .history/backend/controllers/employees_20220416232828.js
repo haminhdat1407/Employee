@@ -10,27 +10,15 @@ const checkEmailAvailable = async (email) => {
   });
   return isEmailAvailable;
 };
-
 const checkPhoneIsAvailable = async (phoneNumber) => {
   const employees = await EmployeeModel.find();
-  let isPhoneAvailable;
+  let isEmailAvailable;
   const isExist = employees.forEach((emp) => {
     if (emp.Phone === phoneNumber) {
-      isPhoneAvailable = true;
+      isEmailAvailable = true;
     }
   });
-  return isPhoneAvailable;
-};
-
-const checkTypeDelete = async (gender) => {
-  const employees = await EmployeeModel.find();
-  let isFemale;
-  const isExist = employees.forEach((emp) => {
-    if (emp.Gender === gender) {
-      isFemale = true;
-    }
-    return isFemale;
-  });
+  return isEmailAvailable;
 };
 
 //all
@@ -46,16 +34,10 @@ export const getEmployees = async (req, res) => {
 
 //create
 export const createEmployee = async (req, res) => {
-  if (await checkEmailAvailable(req.body.Email)) {
+  if (await checkExistAccount(req.body.Email, req.body.Phone)) {
     res.status(500).json({
       success: false,
-      message: 'Email already using.',
-    });
-  }
-  if (await checkPhoneIsAvailable(req.body.Phone)) {
-    res.status(500).json({
-      success: false,
-      message: 'Phone number already using.',
+      message: 'Email or Phone number already using.',
     });
   }
   try {
@@ -68,7 +50,6 @@ export const createEmployee = async (req, res) => {
     res.status(500).json({ error: err });
   }
 };
-
 //update
 export const updateEmployee = async (req, res) => {
   if (await checkExistAccount(req.body.Email, req.body.Phone)) {
@@ -97,16 +78,10 @@ export const updateEmployee = async (req, res) => {
     res.status(500).json({ error: err });
   }
 };
-
 //Delete
 export const deleteEmployee = async (req, res) => {
-  if (await checkTypeDelete('Female')) {
-    res.status(500).json({
-      success: false,
-      message: 'Can not delete gender is Female.',
-    });
-  }
   const id = req.params.employeeID;
+
   EmployeeModel.findByIdAndRemove(id)
     .exec()
     .then(() =>

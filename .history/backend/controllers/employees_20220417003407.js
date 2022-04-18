@@ -29,7 +29,6 @@ const checkTypeDelete = async (gender) => {
     if (emp.Gender === gender) {
       isFemale = true;
     }
-    return isFemale;
   });
 };
 

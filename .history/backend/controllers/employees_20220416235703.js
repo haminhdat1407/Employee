@@ -29,8 +29,8 @@ const checkTypeDelete = async (gender) => {
     if (emp.Gender === gender) {
       isFemale = true;
     }
-    return isFemale;
   });
+  return isFemale;
 };
 
 //all
@@ -106,6 +106,7 @@ export const deleteEmployee = async (req, res) => {
       message: 'Can not delete gender is Female.',
     });
   }
+
   const id = req.params.employeeID;
   EmployeeModel.findByIdAndRemove(id)
     .exec()

@@ -29,9 +29,10 @@ const checkTypeDelete = async (gender) => {
     if (emp.Gender === gender) {
       isFemale = true;
     }
-    return isFemale;
   });
+  return isFemale;
 };
+checkTypeDelete('Female');
 
 //all
 export const getEmployees = async (req, res) => {
@@ -101,24 +102,20 @@ export const updateEmployee = async (req, res) => {
 //Delete
 export const deleteEmployee = async (req, res) => {
   if (await checkTypeDelete('Female')) {
-    res.status(500).json({
-      success: false,
-      message: 'Can not delete gender is Female.',
-    });
+    const id = req.params.employeeID;
+    EmployeeModel.findByIdAndRemove(id)
+      .exec()
+      .then(() =>
+        res.status(200).json({
+          success: true,
+          message: 'Delete Successfull.',
+        })
+      )
+      .catch((err) =>
+        res.status(500).json({
+          success: false,
+          message: 'Server error. Please try again',
+        })
+      );
   }
-  const id = req.params.employeeID;
-  EmployeeModel.findByIdAndRemove(id)
-    .exec()
-    .then(() =>
-      res.status(200).json({
-        success: true,
-        message: 'Delete Successfull.',
-      })
-    )
-    .catch((err) =>
-      res.status(500).json({
-        success: false,
-        message: 'Server error. Please try again',
-      })
-    );
 };

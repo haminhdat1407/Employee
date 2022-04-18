@@ -29,8 +29,8 @@ const checkTypeDelete = async (gender) => {
     if (emp.Gender === gender) {
       isFemale = true;
     }
-    return isFemale;
   });
+  return isFemale;
 };
 
 //all
@@ -52,7 +52,7 @@ export const createEmployee = async (req, res) => {
       message: 'Email already using.',
     });
   }
-  if (await checkPhoneIsAvailable(req.body.Phone)) {
+  if (checkPhoneIsAvailable(req.body.Phone)) {
     res.status(500).json({
       success: false,
       message: 'Phone number already using.',
@@ -100,12 +100,6 @@ export const updateEmployee = async (req, res) => {
 
 //Delete
 export const deleteEmployee = async (req, res) => {
-  if (await checkTypeDelete('Female')) {
-    res.status(500).json({
-      success: false,
-      message: 'Can not delete gender is Female.',
-    });
-  }
   const id = req.params.employeeID;
   EmployeeModel.findByIdAndRemove(id)
     .exec()
