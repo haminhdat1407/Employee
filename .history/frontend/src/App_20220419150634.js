@@ -106,6 +106,7 @@ function App() {
                     fileName={this.state.fileName}
                   />
                 </Col> */}
+                */}
               </Row>
               <EmployeeList
                 style={{ marginTop: '50px' }}
