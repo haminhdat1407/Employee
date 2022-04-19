@@ -18,7 +18,7 @@ function ModalForm({ onChange, errorMessage }) {
 
   const onFinish = (e) => {
     const newEmployee = {
-      // _id: uuidv4(),
+      _id: uuidv4(),
       ...e,
     };
     setDataForm(newEmployee);

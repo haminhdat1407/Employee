@@ -10,6 +10,7 @@ const checkEmailAvailable = async (email) => {
   });
   return isEmailAvailable;
 };
+
 const checkPhoneIsAvailable = async (phoneNumber) => {
   const employees = await EmployeeModel.find();
   let isPhoneAvailable;
@@ -20,6 +21,7 @@ const checkPhoneIsAvailable = async (phoneNumber) => {
   });
   return isPhoneAvailable;
 };
+
 const checkTypeDelete = async (gender) => {
   const employees = await EmployeeModel.find();
   let isFemale;
@@ -30,6 +32,7 @@ const checkTypeDelete = async (gender) => {
     return isFemale;
   });
 };
+
 //all
 export const getEmployees = async (req, res) => {
   try {
@@ -40,6 +43,7 @@ export const getEmployees = async (req, res) => {
     res.status(500).json({ error: err });
   }
 };
+
 //create
 export const createEmployee = async (req, res) => {
   if (await checkEmailAvailable(req.body.Email)) {
@@ -64,14 +68,15 @@ export const createEmployee = async (req, res) => {
     res.status(500).json({ error: err });
   }
 };
+
 //update
 export const updateEmployee = async (req, res) => {
-  // if (await checkExistAccount(req.body.Email, req.body.Phone)) {
-  //   res.status(500).json({
-  //     success: false,
-  //     message: 'Email or Phone number already using.',
-  //   });
-  // }
+  if (await checkExistAccount(req.body.Email, req.body.Phone)) {
+    res.status(500).json({
+      success: false,
+      message: 'Email or Phone number already using.',
+    });
+  }
   try {
     const id = req.params.employeeID;
     const updateObject = req.body;
@@ -92,50 +97,29 @@ export const updateEmployee = async (req, res) => {
     res.status(500).json({ error: err });
   }
 };
-//Delete
-// export const deleteEmployee = async (req, res) => {
-//   if (checkTypeDelete('Female')) {
-//     console.log('ádasd', checkTypeDelete);
-//     res.status(500).json({
-//       success: false,
-//       message: 'Can not delete gender is Female.',
-//     });
-//   }
-//   const id = req.params.employeeID;
 
-//   EmployeeModel.findByIdAndRemove(id)
-//     .exec()
-//     .then(() =>
-//       res.status(200).json({
-//         success: true,
-//         message: 'Delete Successfull.',
-//       })
-//     )
-//     .catch((err) =>
-//       res.status(500).json({
-//         success: false,
-//         message: 'Server error. Please try again',
-//       })
-//     );
-// };
-export const deleteEmployee = (req, res) => {
+//Delete
+export const deleteEmployee = async (req, res) => {
+  // if (await checkTypeDelete('Female')) {
+  //   res.status(500).json({
+  //     success: false,
+  //     message: 'Can not delete gender is Female.',
+  //   });
+  // }
   const id = req.params.employeeID;
-  EmployeeModel.findByIdAndDelete(id)
-    .then((data) => {
-      if (data.Gender === 'Female') {
-        res.status(500).json({
-          success: true,
-          message: 'Delete Successfull.',
-        });
-      } else {
-        res.send({
-          message: 'Employee was deleted successfully!',
-        });
-      }
-    })
-    .catch((err) => {
-      // res.status(500).send({
-      //   message: 'Could not delete employee',
-      // });
-    });
+  console.log('asdasdasd', id);
+  EmployeeModel.findByIdAndRemove(id)
+    .exec()
+    .then(() =>
+      res.status(200).json({
+        success: true,
+        message: 'Delete Successfull.',
+      })
+    )
+    .catch((err) =>
+      res.status(500).json({
+        success: false,
+        message: 'Server error. Please try again',
+      })
+    );
 };

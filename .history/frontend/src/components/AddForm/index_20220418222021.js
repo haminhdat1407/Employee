@@ -18,7 +18,7 @@ function ModalForm({ onChange, errorMessage }) {
 
   const onFinish = (e) => {
     const newEmployee = {
-      // _id: uuidv4(),
+      _id: uuidv4(),
       ...e,
     };
     setDataForm(newEmployee);
@@ -142,10 +142,10 @@ function ModalForm({ onChange, errorMessage }) {
             rules={[
               {
                 required: true,
-                message: 'Age must be older from 18 to 60 age !',
+                message: 'Age must be older from 0 to 120 age !',
                 type: 'number',
-                min: 18,
-                max: 60,
+                min: 0,
+                max: 120,
               },
             ]}
           >

@@ -10,6 +10,7 @@ const checkEmailAvailable = async (email) => {
   });
   return isEmailAvailable;
 };
+
 const checkPhoneIsAvailable = async (phoneNumber) => {
   const employees = await EmployeeModel.find();
   let isPhoneAvailable;
@@ -20,6 +21,7 @@ const checkPhoneIsAvailable = async (phoneNumber) => {
   });
   return isPhoneAvailable;
 };
+
 const checkTypeDelete = async (gender) => {
   const employees = await EmployeeModel.find();
   let isFemale;
@@ -30,6 +32,7 @@ const checkTypeDelete = async (gender) => {
     return isFemale;
   });
 };
+
 //all
 export const getEmployees = async (req, res) => {
   try {
@@ -40,6 +43,7 @@ export const getEmployees = async (req, res) => {
     res.status(500).json({ error: err });
   }
 };
+
 //create
 export const createEmployee = async (req, res) => {
   if (await checkEmailAvailable(req.body.Email)) {
@@ -64,6 +68,7 @@ export const createEmployee = async (req, res) => {
     res.status(500).json({ error: err });
   }
 };
+
 //update
 export const updateEmployee = async (req, res) => {
   // if (await checkExistAccount(req.body.Email, req.body.Phone)) {
@@ -92,6 +97,7 @@ export const updateEmployee = async (req, res) => {
     res.status(500).json({ error: err });
   }
 };
+
 //Delete
 // export const deleteEmployee = async (req, res) => {
 //   if (checkTypeDelete('Female')) {
@@ -120,22 +126,21 @@ export const updateEmployee = async (req, res) => {
 // };
 export const deleteEmployee = (req, res) => {
   const id = req.params.employeeID;
-  EmployeeModel.findByIdAndDelete(id)
+  EmployeeModel.findByIdAndRemove(id, { useFindAndModify: false })
     .then((data) => {
       if (data.Gender === 'Female') {
-        res.status(500).json({
-          success: true,
-          message: 'Delete Successfull.',
+        res.status(404).send({
+          message: `Cannot delete Gender Female`,
         });
       } else {
         res.send({
-          message: 'Employee was deleted successfully!',
+          message: 'Book was deleted successfully!',
         });
       }
     })
     .catch((err) => {
-      // res.status(500).send({
-      //   message: 'Could not delete employee',
-      // });
+      res.status(500).send({
+        message: 'Could not delete Book with id=' + id,
+      });
     });
 };
