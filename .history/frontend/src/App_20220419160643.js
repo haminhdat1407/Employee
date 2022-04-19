@@ -1,15 +1,13 @@
-import { Col, Row } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import apiEmployees from './api/apiEmployee';
+import { Col, message, Row } from 'antd';
+import EmployeeList from './components/EmployeeList';
+import ModalForm from './components/AddForm';
+import Login from './components/Login';
+import './App.css';
+import { Routes, Router, Route } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import apiEmployees from './api/apiEmployee';
-import './App.css';
-import ModalForm from './components/AddForm';
-import EmployeeList from './components/EmployeeList';
-import Login from './components/Login';
-import { ExportCSV } from '../../frontend/src/components/ExportCSV';
-
 toast.configure();
 
 function App() {
@@ -98,16 +96,10 @@ function App() {
                 <Col xs={2} sm={4} md={6} lg={8} xl={10}>
                   <ModalForm onChange={handleAddStudent} />
                 </Col>
-
                 <Col xs={20} sm={16} md={12} lg={8} xl={4}>
                   EMPLOYEE LIST
                 </Col>
-                <Col xs={20} sm={16} md={12} lg={8} xl={4}>
-                  <ExportCSV
-                    csvData={employeeList}
-                    fileName={'employee list'}
-                  />
-                </Col>
+                <Col xs={20} sm={16} md={12} lg={8} xl={4}></Col>
               </Row>
               <EmployeeList
                 style={{ marginTop: '50px' }}

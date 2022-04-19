@@ -4,7 +4,9 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Typography } from 'antd';
+import { ExportCSV } from './components/ExportFile';
 
+// import '/Employee/frontend/src/components/AddForm/style.css';
 const { Text } = Typography;
 
 ModalForm.propTypes = {
@@ -47,7 +49,7 @@ function ModalForm({ onChange, errorMessage }) {
       <Button type='primary' onClick={showModal}>
         Add Employee
       </Button>
-
+      <ExportCSV />
       <Modal
         title='Add Employee'
         visible={isModalVisible}
