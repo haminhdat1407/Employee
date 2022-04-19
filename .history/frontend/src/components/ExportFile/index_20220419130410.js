@@ -1,0 +1,23 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
+import * as FileSaver from 'file-saver';
+import * as XLSX from 'xlsx';
+
+function ExportCSV({ csvData, fileName }) {
+  return {const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+  const fileExtension = '.xlsx';
+
+  const exportToCSV = (csvData, fileName) => {
+      const ws = XLSX.utils.json_to_sheet(csvData);
+      const wb = { Sheets: { 'data': ws }, SheetNames: ['data'] };
+      const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      const data = new Blob([excelBuffer], {type: fileType});
+      FileSaver.saveAs(data, fileName + fileExtension);
+  }}
+  <div>ExportCSV</div>;
+}
+
+ExportCSV.propTypes = {};
+
+export default ExportCSV;
