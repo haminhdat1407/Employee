@@ -122,14 +122,14 @@ export const deleteEmployee = async (req, res) => {
   const id = req.params.employeeID;
   try {
     const employees = await EmployeeModel.findById(id);
-    if (employees.Gender === 'Female') {
+    if (employees.Gender === "Female") {
       res.status(500).json({
-        messgae: 'Can not delete gender is female.',
+        messgae: "Can not delete gender is female..",
       });
     } else {
       EmployeeModel.findByIdAndDelete(id).then((data) => {
         res.send({
-          message: 'Employee was deleted successfully!',
+          message: "Employee was deleted successfully!",
         });
       });
     }
