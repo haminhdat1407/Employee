@@ -94,6 +94,7 @@ function App() {
           path='/employee'
           element={
             <>
+              <p>LOGIN</p>
               <Row className='header'>
                 <Col xs={2} sm={4} md={6} lg={8} xl={10}>
                   <ModalForm onChange={handleAddStudent} />
@@ -102,7 +103,7 @@ function App() {
                 <Col xs={20} sm={16} md={12} lg={8} xl={4}>
                   EMPLOYEE LIST
                 </Col>
-                <Col xs={4} sm={16} md={12} lg={8} xl={4}>
+                <Col xs={20} sm={16} md={12} lg={8} xl={4}>
                   <ExportCSV
                     csvData={employeeList}
                     fileName={'employee list'}

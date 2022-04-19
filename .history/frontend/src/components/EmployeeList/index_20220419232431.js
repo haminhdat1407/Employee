@@ -273,6 +273,7 @@ function EmployeeList({ data, onRemove, onEdit }) {
                 Edit
               </Button>
             </Form.Item>
+            <Text type='danger'>{errorMessage}</Text>
           </Form>
         </Modal>
       )}

@@ -36,7 +36,7 @@ function Login(props) {
           onFinish={onFinish}
           autoComplete='off'
         >
-          <p className='p-login'>WELCOME TO EMPLOYEE LIST</p>
+          <p className='p-login'>LOGIN</p>
           <Form.Item
             label='Username'
             name='username'
