@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import { Table, Space } from 'antd';
 import PropTypes from 'prop-types';
 import { Button, Form, Input, InputNumber, Modal, Radio } from 'antd';
+
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import './style.css';
 import '../../App.css';

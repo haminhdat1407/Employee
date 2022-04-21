@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import { Table, Space } from 'antd';
 import PropTypes from 'prop-types';
 import { Button, Form, Input, InputNumber, Modal, Radio } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import './style.css';
 import '../../App.css';
@@ -103,13 +104,13 @@ function EmployeeList({ data, onRemove, onEdit }) {
       render: (dataIndex, data) => (
         <Space size='middle'>
           <button
-            className='ant-edit'
+            className='ant-btn-primary'
             onClick={() => onEditEmployee(dataIndex, data)}
           >
             Edit{' '}
           </button>
           <button
-            className='atn-delete'
+            className='ant-btn-primary'
             type='primary'
             danger
             onClick={() => showDeleteConfirm(data)}

@@ -1,22 +1,18 @@
-import { Button, Form, Input } from 'antd';
-import React from 'react';
+import { Alert, Button, Form, Input } from 'antd';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
-import { toast } from 'react-toastify';
 import './style.css';
 import '../../App.css';
-import { showToast } from '../../Common';
-
-toast.configure();
 
 function Login(props) {
+  const [error, setError] = useState('');
   let navigate = useNavigate();
   const onFinish = (values) => {
     if ((values.username === 'admin') & (values.password === '123')) {
       navigate(`/employee`);
       localStorage.setItem('token', 'akidadajdjhhah');
     } else {
-      showToast('Wrong Password or Username', 'error', 'colored');
+      setError();
     }
   };
   return (
@@ -60,6 +56,8 @@ function Login(props) {
           </div>
         </Form>
       </div>
+
+      <span>{error}</span>
     </div>
   );
 }

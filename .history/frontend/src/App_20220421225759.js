@@ -16,10 +16,6 @@ toast.configure();
 function App() {
   const [employeeList, setEmployeeList] = useState([]);
 
-  const dataExportCSV = employeeList.filter((data) => {
-    return delete data['Password'] && delete data['__v'];
-  });
-
   //getAll
   useEffect(() => {
     try {
@@ -105,7 +101,7 @@ function App() {
                 </Col>
                 <Col xs={4} sm={16} md={12} lg={8} xl={4}>
                   <ExportCSV
-                    csvData={dataExportCSV}
+                    csvData={employeeList}
                     fileName={'employee list'}
                   />
                 </Col>

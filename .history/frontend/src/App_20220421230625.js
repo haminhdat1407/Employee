@@ -105,7 +105,7 @@ function App() {
                 </Col>
                 <Col xs={4} sm={16} md={12} lg={8} xl={4}>
                   <ExportCSV
-                    csvData={dataExportCSV}
+                    csvData={employeeList}
                     fileName={'employee list'}
                   />
                 </Col>

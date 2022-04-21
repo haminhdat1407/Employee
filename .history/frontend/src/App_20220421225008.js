@@ -9,16 +9,11 @@ import ModalForm from './components/AddForm';
 import EmployeeList from './components/EmployeeList';
 import Login from './components/Login';
 import { ExportCSV } from '../../frontend/src/components/ExportCSV';
-import { showToast } from './Common';
 
 toast.configure();
 
 function App() {
   const [employeeList, setEmployeeList] = useState([]);
-
-  const dataExportCSV = employeeList.filter((data) => {
-    return delete data['Password'] && delete data['__v'];
-  });
 
   //getAll
   useEffect(() => {
@@ -86,7 +81,6 @@ function App() {
       }
     })();
   };
-  console.log(employeeList);
   return (
     <>
       <Routes>
@@ -105,7 +99,7 @@ function App() {
                 </Col>
                 <Col xs={4} sm={16} md={12} lg={8} xl={4}>
                   <ExportCSV
-                    csvData={dataExportCSV}
+                    csvData={employeeList}
                     fileName={'employee list'}
                   />
                 </Col>

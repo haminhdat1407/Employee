@@ -1,13 +1,8 @@
-import { Button, Form, Input } from 'antd';
-import React from 'react';
+import { Alert, Button, Form, Input } from 'antd';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
-import { toast } from 'react-toastify';
 import './style.css';
 import '../../App.css';
-import { showToast } from '../../Common';
-
-toast.configure();
 
 function Login(props) {
   let navigate = useNavigate();
@@ -16,7 +11,6 @@ function Login(props) {
       navigate(`/employee`);
       localStorage.setItem('token', 'akidadajdjhhah');
     } else {
-      showToast('Wrong Password or Username', 'error', 'colored');
     }
   };
   return (
