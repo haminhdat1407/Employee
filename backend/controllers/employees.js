@@ -20,16 +20,7 @@ const checkPhoneIsAvailable = async (phoneNumber) => {
   });
   return isPhoneAvailable;
 };
-const checkTypeDelete = async (gender) => {
-  const employees = await EmployeeModel.find();
-  let isFemale;
-  const isExist = employees.forEach((emp) => {
-    if (emp.Gender === gender) {
-      isFemale = true;
-    }
-    return isFemale;
-  });
-};
+
 //all
 export const getEmployees = async (req, res) => {
   try {
@@ -63,30 +54,42 @@ export const createEmployee = async (req, res) => {
 };
 //update
 export const updateEmployee = async (req, res) => {
-  // if (await checkExistAccount(req.body.Email, req.body.Phone)) {
-  //   res.status(500).json({
-  //     success: false,
-  //     message: 'Email or Phone number already using.',
-  //   });
-  // }
-  try {
-    const id = req.params.employeeID;
-    const updateObject = req.body;
-    EmployeeModel.findByIdAndUpdate({ _id: id }, { $set: updateObject })
-      .exec()
-      .then(() => {
-        res.status(200).json({
-          success: true,
-          messgae: ' Changes have been saved',
-          updateEmployee: updateObject,
+  const id = req.params.employeeID;
+  const updateObject = req.body;
+  const employees = await EmployeeModel.findById(id);
+  const currentEmail = employees.Email;
+  const currentPhoneNumber = employees.Phone;
+  if (
+    (await checkEmailAvailable(updateObject.Email)) &&
+    updateObject.Email !== currentEmail
+  ) {
+    res.status(500).json({
+      message: 'Email already using.Please try again.',
+    });
+  } else if (
+    (await checkPhoneIsAvailable(updateObject.Phone)) &&
+    updateObject.Phone !== currentPhoneNumber
+  ) {
+    res.status(500).json({
+      message: 'Phone number already using.Please try again.',
+    });
+  } else {
+    try {
+      EmployeeModel.findByIdAndUpdate({ _id: id }, { $set: updateObject })
+        .exec()
+        .then(() => {
+          res.status(200).json({
+            success: true,
+            messgae: 'Changes have been saved',
+            updateEmployee: updateObject,
+          });
         });
+    } catch (err) {
+      res.status(500).json({
+        success: false,
+        messgae: ' Server error. Please try again',
       });
-  } catch (err) {
-    // res.status(500).json({
-    //   success: false,
-    //   messgae: ' Server error. Please try again',
-    // });
-    res.status(500).json({ error: err });
+    }
   }
 };
 //Delete

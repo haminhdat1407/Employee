@@ -2,10 +2,7 @@ import PropTypes from 'prop-types';
 import { Button, Form, Input, InputNumber, Modal, Radio } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { Typography } from 'antd';
-
-const { Text } = Typography;
+import '../../App.css';
 
 ModalForm.propTypes = {
   onChange: PropTypes.func,
@@ -14,19 +11,21 @@ ModalForm.propTypes = {
 
 function ModalForm({ onChange }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [dataForm, setDataForm] = useState();
+  const [dataForm, setDataForm] = useState({});
 
+  const [form] = Form.useForm();
   const onFinish = (e) => {
     const newEmployee = {
-      // _id: uuidv4(),
       ...e,
     };
     setDataForm(newEmployee);
     onChange(newEmployee);
+    setIsModalVisible(false);
   };
 
   const showModal = () => {
     setIsModalVisible(true);
+    form.resetFields();
   };
   const cancelModal = () => {
     setIsModalVisible(false);
@@ -44,7 +43,7 @@ function ModalForm({ onChange }) {
   };
   return (
     <>
-      <Button type='primary' onClick={showModal}>
+      <Button className='btn-action2' type='primary' onClick={showModal}>
         Add Employee
       </Button>
 
@@ -61,6 +60,7 @@ function ModalForm({ onChange }) {
           wrapperCol={{
             span: 14,
           }}
+          form={form}
           onFinish={onFinish}
           validateMessages={validateMessages}
         >
@@ -159,7 +159,7 @@ function ModalForm({ onChange }) {
               htmlType='submit'
               style={{ backgroundColor: 'aqua' }}
               onClick={handleSubmit}
-              className='ant-btn-primary'
+              className='ant-btn-primary '
             >
               Submit
             </Button>

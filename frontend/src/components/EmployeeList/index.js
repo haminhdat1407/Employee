@@ -2,19 +2,10 @@ import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Table, Space } from 'antd';
 import PropTypes from 'prop-types';
-import {
-  Button,
-  Form,
-  Input,
-  InputNumber,
-  Modal,
-  Radio,
-  Typography,
-} from 'antd';
+import { Button, Form, Input, InputNumber, Modal, Radio } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import '/Employee/frontend/src/components/EmployeeList/style.css';
-const { Text } = Typography;
+import './style.css';
 
 const { confirm } = Modal;
 
@@ -22,7 +13,6 @@ EmployeeList.propTypes = {
   data: PropTypes.array,
   onRemove: PropTypes.func,
   onEdit: PropTypes.func,
-  errorMessage: PropTypes.string,
 };
 function EmployeeList({ data, onRemove, onEdit }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -66,32 +56,31 @@ function EmployeeList({ data, onRemove, onEdit }) {
       title: 'ID',
       dataIndex: '_id',
       key: 'id',
+      align: 'center',
     },
     {
       title: 'First Name',
       dataIndex: 'FirstName',
       key: 'firstname',
+      align: 'center',
     },
     {
       title: 'Middle Name',
       dataIndex: 'MiddleName',
       key: 'middlename',
+      align: 'center',
     },
     {
       title: 'Last Name',
       dataIndex: 'LastName',
       key: 'lastName',
+      align: 'center',
     },
     {
       title: 'Email',
       key: 'email',
       dataIndex: 'Email',
     },
-    // {
-    //   title: 'Password',
-    //   key: 'password',
-    //   dataIndex: 'Password',
-    // },
     {
       title: 'Phone',
       key: 'phone',
@@ -106,6 +95,7 @@ function EmployeeList({ data, onRemove, onEdit }) {
       title: 'Date Of Birth',
       key: 'dateOfBirth',
       dataIndex: 'DateOfBirth',
+      align: 'center',
     },
     {
       title: 'Action',
@@ -121,7 +111,7 @@ function EmployeeList({ data, onRemove, onEdit }) {
     },
   ];
   return (
-    <>
+    <div className='employee'>
       <Table
         className='ant-table-wrapper'
         dataSource={data}
@@ -276,7 +266,7 @@ function EmployeeList({ data, onRemove, onEdit }) {
           </Form>
         </Modal>
       )}
-    </>
+    </div>
   );
 }
 export default EmployeeList;

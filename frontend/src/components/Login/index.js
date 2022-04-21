@@ -1,7 +1,6 @@
+import { Alert, Button, Form, Input } from 'antd';
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { Form, Input, Button, Checkbox, Alert } from 'antd';
 import './style.css';
 
 function Login(props) {
@@ -15,7 +14,6 @@ function Login(props) {
       setError(
         <Alert
           style={{ position: 'absolute', top: '5%', right: '5%' }}
-          // className='error-login'
           message='Error'
           description='Wrong Username or Password.'
           type='error'
@@ -26,7 +24,7 @@ function Login(props) {
     }
   };
   return (
-    <>
+    <div className='lg'>
       <div className='login'>
         <Form
           name='basic'
@@ -37,32 +35,38 @@ function Login(props) {
           autoComplete='off'
         >
           <p className='p-login'>WELCOME TO EMPLOYEE LIST</p>
-          <Form.Item
-            label='Username'
-            name='username'
-            rules={[{ required: true, message: 'Please input your username!' }]}
-          >
-            <Input />
-          </Form.Item>
+          <div className='bsd'>
+            <Form.Item
+              label='Username'
+              name='username'
+              rules={[
+                { required: true, message: 'Please input your username!' },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-          <Form.Item
-            label='Password'
-            name='password'
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <Input.Password />
-          </Form.Item>
+            <Form.Item
+              label='Password'
+              name='password'
+              rules={[
+                { required: true, message: 'Please input your password!' },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type='primary' htmlType='submit'>
-              Submit
-            </Button>
-          </Form.Item>
+            <Form.Item wrapperCol={{ offset: 6, span: 12 }}>
+              <Button type='primary' shape='round' htmlType='submit'>
+                Submit
+              </Button>
+            </Form.Item>
+          </div>
         </Form>
       </div>
 
       <span>{error}</span>
-    </>
+    </div>
   );
 }
 

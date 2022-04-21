@@ -75,15 +75,19 @@ function App() {
   const handleEditStudent = (data) => {
     if (!data && typeof data === undefined) return;
     (async () => {
-      const responseUpdate = await apiEmployees.updateEmployee(data);
-      setEmployeeList(
-        employeeList.map((employee) => {
-          return employee?._id === responseUpdate?.updateEmployee._id
-            ? { ...responseUpdate?.updateEmployee }
-            : employee;
-        })
-      );
-      showToast('Update successfully !', 'success');
+      try {
+        const responseUpdate = await apiEmployees.updateEmployee(data);
+        setEmployeeList(
+          employeeList.map((employee) => {
+            return employee?._id === responseUpdate?.updateEmployee._id
+              ? { ...responseUpdate?.updateEmployee }
+              : employee;
+          })
+        );
+        showToast('Update successfully !', 'success');
+      } catch (error) {
+        showToast(error, 'error');
+      }
     })();
   };
   return (

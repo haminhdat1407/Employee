@@ -2,8 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import employees from './routers/employees.js';
-import users from './routers/users.js';
-
 import mongoose from 'mongoose';
 
 const app = express();
@@ -17,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '30mb' }));
 app.use(cors());
 
 app.use('/employees', employees);
-app.use('/users', users);
 
 mongoose
   .connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })

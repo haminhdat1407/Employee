@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
+import '../../App.css';
 
 export const ExportCSV = ({ csvData, fileName }) => {
   const fileType =
@@ -17,6 +18,11 @@ export const ExportCSV = ({ csvData, fileName }) => {
   };
 
   return (
-    <Button onClick={(e) => exportToCSV(csvData, fileName)}>Export</Button>
+    <Button
+      className='btn-action ant-btn-primary'
+      onClick={(e) => exportToCSV(csvData, fileName)}
+    >
+      Export
+    </Button>
   );
 };

@@ -5,3 +5,13 @@
   align-items: center;
   background-color: rgb(229, 231, 245);
 }
+.btn-action{
+  position: absolute !important;
+  right: -300px;
+  bottom: -15px;
+}
+.btn-action2{
+  position: absolute !important;
+  right: -695px;
+  bottom: -15px;
+}
