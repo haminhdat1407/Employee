@@ -3,7 +3,7 @@
   width: 95%;
   margin: auto;
   align-items: center;
-  background-color: #f5d595;
+  background-color: rgb(229, 231, 245);
 }
 .btn-action{
   position: absolute !important;
@@ -15,14 +15,6 @@
   right: -695px;
   bottom: -15px;
 }
-.ant-btn-primary{
-  background-color: #fffc1859  !important;
-  color: currentcolor !important;
-}
-.add .ant-form-item-label{
-  overflow: inherit;
-}
-.add .ant-col-14 {
-  max-width: 60.333333%;
-  left: 19px;
+.login .ant-btn-primary{
+  background: #ffc918;
 }

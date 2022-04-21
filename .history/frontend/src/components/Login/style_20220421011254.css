@@ -11,15 +11,15 @@
         position: relative;
     
 }
-.lg .ant-btn > span{
-    color: black;
-}
-/* .login .ant-btn-primary{
+
+.login .ant-btn-primary{
     background: #ffc918;
-} */
+}
 .login .ant-btn-round {
     width: 179px;
+
 }
+
 .lg {
     background-image: url('https://images.pexels.com/photos/1553962/pexels-photo-1553962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');  
      background-repeat: no-repeat;
@@ -33,5 +33,5 @@
 p{
     font-size: 27px;
     font-weight: 500;
-    color: #6cbc44;
+    color: crimson;
 }

@@ -2,7 +2,6 @@ import { Alert, Button, Form, Input } from 'antd';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
-import '../../App.css';
 
 function Login(props) {
   const [error, setError] = useState('');

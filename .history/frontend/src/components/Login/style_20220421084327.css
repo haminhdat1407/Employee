@@ -14,9 +14,9 @@
 .lg .ant-btn > span{
     color: black;
 }
-/* .login .ant-btn-primary{
+.login .ant-btn-primary{
     background: #ffc918;
-} */
+}
 .login .ant-btn-round {
     width: 179px;
 }
@@ -33,5 +33,5 @@
 p{
     font-size: 27px;
     font-weight: 500;
-    color: #6cbc44;
+    color: crimson;
 }
