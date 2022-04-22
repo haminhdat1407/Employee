@@ -11,6 +11,7 @@ import Login from './components/Login';
 import { ExportCSV } from '../../frontend/src/components/ExportCSV';
 import { showToast } from './Common';
 import { PageHeader, Tabs, Button, Statistic, Descriptions } from 'antd';
+
 toast.configure();
 
 function App() {
@@ -19,7 +20,6 @@ function App() {
   const dataExportCSV = employeeList.filter((data) => {
     return delete data['Password'] && delete data['__v'];
   });
-
   const extraContent = (
     <div
       style={{
@@ -27,13 +27,15 @@ function App() {
         width: 'max-content',
         justifyContent: 'flex-end',
       }}
-    ></div>
-  );
-
-  const Content = ({ children, extra }) => (
-    <div className='content'>
-      <div className='main'>{children}</div>
-      <div className='extra'>{extra}</div>
+    >
+      <Statistic
+        title='Status'
+        value='Pending'
+        style={{
+          marginRight: 32,
+        }}
+      />
+      <Statistic title='Price' prefix='$' value={568.08} />
     </div>
   );
 
@@ -112,50 +114,50 @@ function App() {
           path='/employee'
           element={
             <>
-              {/* <Row className='header'>
-                <Col xs={2} sm={4} md={6} lg={8} xl={10}>
+              <Row className='header'>
+                {/* <Col xs={2} sm={4} md={6} lg={8} xl={10}>
                   <ModalForm onChange={handleAddStudent} />
                 </Col>
 
                 <Col xs={20} sm={16} md={12} lg={8} xl={4}>
                   EMPLOYEE LIST
-                </Col>
-                <Col xs={4} sm={16} md={12} lg={8} xl={4}>
-                  <ExportCSV
-                    csvData={dataExportCSV}
-                    fileName={'employee list'}
-                  />
-                </Col>
-              </Row> */}
-              <PageHeader
-                className='site-page-header-responsive'
-                onBack={() => window.history.back()}
-                title='EMPLOYEE LIST'
-                extra={[
-                  <>
-                    <ExportCSV
-                      csvData={dataExportCSV}
-                      fileName={'employee list'}
-                    />
-                    <ModalForm onChange={handleAddStudent} />
-                  </>,
-                ]}
-              >
-                <Content extra={extraContent}>
-                  <EmployeeList
-                    style={{ marginTop: '50px' }}
-                    data={employeeList}
-                    onRemove={handleDeleteEmployee}
-                    onEdit={handleEditStudent}
-                  />
-                </Content>
-              </PageHeader>
-              {/* <EmployeeList
+                </Col> */}
+                <PageHeader
+                  className='site-page-header-responsive'
+                  onBack={() => window.history.back()}
+                  title='Title'
+                  subTitle='This is a subtitle'
+                  extra={[
+                    <Button key='3'>Operation</Button>,
+                    <Button key='2'>Operation</Button>,
+                    <Button key='1' type='primary'>
+                      Primary
+                    </Button>,
+                  ]}
+                  footer={
+                    <Tabs defaultActiveKey='1'>
+                      <TabPane tab='Details' key='1' />
+                      <TabPane tab='Rule' key='2' />
+                    </Tabs>
+                  }
+                >
+                  <Content extra={extraContent}>
+                    {' '}
+                    <Col xs={4} sm={16} md={12} lg={8} xl={4}>
+                      <ExportCSV
+                        csvData={dataExportCSV}
+                        fileName={'employee list'}
+                      />
+                    </Col>
+                  </Content>
+                </PageHeader>
+              </Row>
+              <EmployeeList
                 style={{ marginTop: '50px' }}
                 data={employeeList}
                 onRemove={handleDeleteEmployee}
                 onEdit={handleEditStudent}
-              /> */}
+              />
             </>
           }
         />

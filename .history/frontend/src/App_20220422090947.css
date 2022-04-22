@@ -1,3 +1,8 @@
+@media only screen and (max-width:400px){
+ color: red;
+}
+
+
 .header {
   font-size: 30px;
   width: 95%;
@@ -5,21 +10,21 @@
   align-items: center;
   background-color: #ffaa004a;
 }
-/* .btn-action{
+.btn-action{
   position: absolute !important;
   right: -300px;
   bottom: -15px;
-} */
-/* .btn-action2{
+}
+.btn-action2{
   position: absolute !important;
   right: -695px;
   bottom: -15px;
-} */
-/* .ant-btn-primary{
+}
+.ant-btn-primary{
   border-color: #eda20e !important;
   background-color: #fffc1859  !important;
   color: currentcolor !important;
-} */
+}
 .add .ant-form-item-label{
   overflow: inherit;
 }
@@ -27,9 +32,3 @@
   max-width: 60.333333%;
   left: 19px;
 }
-
-@media only screen and (max-width:400px){
-  #root {
-    color: red;
-  }
- }

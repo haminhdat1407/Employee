@@ -132,18 +132,20 @@ function App() {
                 onBack={() => window.history.back()}
                 title='EMPLOYEE LIST'
                 extra={[
-                  <>
+                  <Button>
+                    <ModalForm onChange={handleAddStudent} />
+                  </Button>,
+                  <Button>
                     <ExportCSV
                       csvData={dataExportCSV}
                       fileName={'employee list'}
                     />
-                    <ModalForm onChange={handleAddStudent} />
-                  </>,
+                  </Button>,
                 ]}
               >
                 <Content extra={extraContent}>
                   <EmployeeList
-                    style={{ marginTop: '50px' }}
+                    // style={{ marginTop: '50px' }}
                     data={employeeList}
                     onRemove={handleDeleteEmployee}
                     onEdit={handleEditStudent}

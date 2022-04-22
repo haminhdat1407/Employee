@@ -133,6 +133,7 @@ function App() {
                 title='EMPLOYEE LIST'
                 extra={[
                   <>
+                    {' '}
                     <ExportCSV
                       csvData={dataExportCSV}
                       fileName={'employee list'}
@@ -143,7 +144,7 @@ function App() {
               >
                 <Content extra={extraContent}>
                   <EmployeeList
-                    style={{ marginTop: '50px' }}
+                    // style={{ marginTop: '50px' }}
                     data={employeeList}
                     onRemove={handleDeleteEmployee}
                     onEdit={handleEditStudent}

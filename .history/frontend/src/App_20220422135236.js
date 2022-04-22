@@ -27,7 +27,16 @@ function App() {
         width: 'max-content',
         justifyContent: 'flex-end',
       }}
-    ></div>
+    >
+      <Statistic
+        title='Status'
+        value='Pending'
+        style={{
+          marginRight: 32,
+        }}
+      />
+      <Statistic title='Price' prefix='$' value={568.08} />
+    </div>
   );
 
   const Content = ({ children, extra }) => (
@@ -112,7 +121,7 @@ function App() {
           path='/employee'
           element={
             <>
-              {/* <Row className='header'>
+              <Row className='header'>
                 <Col xs={2} sm={4} md={6} lg={8} xl={10}>
                   <ModalForm onChange={handleAddStudent} />
                 </Col>
@@ -126,36 +135,13 @@ function App() {
                     fileName={'employee list'}
                   />
                 </Col>
-              </Row> */}
-              <PageHeader
-                className='site-page-header-responsive'
-                onBack={() => window.history.back()}
-                title='EMPLOYEE LIST'
-                extra={[
-                  <>
-                    <ExportCSV
-                      csvData={dataExportCSV}
-                      fileName={'employee list'}
-                    />
-                    <ModalForm onChange={handleAddStudent} />
-                  </>,
-                ]}
-              >
-                <Content extra={extraContent}>
-                  <EmployeeList
-                    style={{ marginTop: '50px' }}
-                    data={employeeList}
-                    onRemove={handleDeleteEmployee}
-                    onEdit={handleEditStudent}
-                  />
-                </Content>
-              </PageHeader>
-              {/* <EmployeeList
+              </Row>
+              <EmployeeList
                 style={{ marginTop: '50px' }}
                 data={employeeList}
                 onRemove={handleDeleteEmployee}
                 onEdit={handleEditStudent}
-              /> */}
+              />
             </>
           }
         />

@@ -27,7 +27,16 @@ function App() {
         width: 'max-content',
         justifyContent: 'flex-end',
       }}
-    ></div>
+    >
+      <Statistic
+        title='Status'
+        value='Pending'
+        style={{
+          marginRight: 32,
+        }}
+      />
+      <Statistic title='Price' prefix='$' value={568.08} />
+    </div>
   );
 
   const Content = ({ children, extra }) => (
@@ -131,14 +140,13 @@ function App() {
                 className='site-page-header-responsive'
                 onBack={() => window.history.back()}
                 title='EMPLOYEE LIST'
+                subTitle='EMPLOYEE LIST'
                 extra={[
-                  <>
-                    <ExportCSV
-                      csvData={dataExportCSV}
-                      fileName={'employee list'}
-                    />
-                    <ModalForm onChange={handleAddStudent} />
-                  </>,
+                  <Button key='3'>Operation</Button>,
+                  <Button key='2'>Operation</Button>,
+                  <Button key='1' type='primary'>
+                    Primary
+                  </Button>,
                 ]}
               >
                 <Content extra={extraContent}>
