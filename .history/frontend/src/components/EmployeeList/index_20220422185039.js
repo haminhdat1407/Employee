@@ -57,7 +57,7 @@ function EmployeeList({ data, onRemove, onEdit }) {
       dataIndex: '_id',
       key: 'id',
       align: 'center',
-      responsive: ['lg'],
+      responsive: ['mg'],
     },
     {
       title: 'First Name',

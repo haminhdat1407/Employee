@@ -57,30 +57,38 @@ function EmployeeList({ data, onRemove, onEdit }) {
       dataIndex: '_id',
       key: 'id',
       align: 'center',
-      responsive: ['lg'],
+      responsive: ['sm'],
     },
     {
       title: 'First Name',
       dataIndex: 'FirstName',
       key: 'firstname',
       align: 'center',
+      responsive: ['sm'],
+
     },
     {
       title: 'Middle Name',
       dataIndex: 'MiddleName',
       key: 'middlename',
       align: 'center',
+      responsive: ['sm'],
+
     },
     {
       title: 'Last Name',
       dataIndex: 'LastName',
       key: 'lastName',
       align: 'center',
+      responsive: ['sm'],
+
     },
     {
       title: 'Email',
       key: 'email',
       dataIndex: 'Email',
+      responsive: ['sm'],
+
     },
     {
       title: 'Phone',
