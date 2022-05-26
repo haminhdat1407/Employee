@@ -43,7 +43,11 @@ function ModalForm({ onChange }) {
   };
   return (
     <>
-      <Button type='primary' onClick={showModal}>
+      <Button
+        className='btn-action2 btn-add-exp'
+        type='primary'
+        onClick={showModal}
+      >
         Add Employee
       </Button>
 

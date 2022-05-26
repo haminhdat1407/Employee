@@ -143,7 +143,7 @@ function App() {
               >
                 <Content extra={extraContent}>
                   <EmployeeList
-                    style={{ marginTop: '50px' }}
+                    style={{ marginTop: '10px' }}
                     data={employeeList}
                     onRemove={handleDeleteEmployee}
                     onEdit={handleEditStudent}

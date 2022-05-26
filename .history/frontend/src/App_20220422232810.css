@@ -12,7 +12,10 @@
   max-width: 60.333333%;
   left: 19px;
 }
-
+@media (max-width: 820px)  {
+   
+    float: right !important;
+}
   
  
 

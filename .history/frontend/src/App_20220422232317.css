@@ -12,7 +12,10 @@
   max-width: 60.333333%;
   left: 19px;
 }
-
+ @media screen {
+   .ant-table-pagination.ant-pagination {
+    margin: 16px -442px 0 0;
+}
   
- 
+ }
 

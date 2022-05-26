@@ -1,0 +1,36 @@
+.header {
+  font-size: 30px;
+  width: 95%;
+  margin: auto;
+  align-items: center;
+  background-color: #ffaa004a;
+}
+/* .btn-action{
+  position: absolute !important;
+  right: -300px;
+  bottom: -15px;
+} */
+/* .btn-action2{
+  position: absolute !important;
+  right: -695px;
+  bottom: -15px;
+} */
+/* .ant-btn-primary{
+  border-color: #eda20e !important;
+  background-color: #fffc1859  !important;
+  color: currentcolor !important;
+} */
+.add .ant-form-item-label{
+  overflow: inherit;
+}
+.add .ant-col-14 {
+  max-width: 60.333333%;
+  left: 19px;
+}
+
+@media only screen and (max-width: 820px){
+  .btn-add-exp{
+   margin: 0 10px 10px 10px;
+   color: red !important;
+  }
+ }

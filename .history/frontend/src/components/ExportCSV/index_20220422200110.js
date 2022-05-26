@@ -18,7 +18,10 @@ export const ExportCSV = ({ csvData, fileName }) => {
   };
 
   return (
-    <Button type='primary' onClick={(e) => exportToCSV(csvData, fileName)}>
+    <Button
+      className='btn-action ant-btn-primary btn-add-exp'
+      onClick={(e) => exportToCSV(csvData, fileName)}
+    >
       Export
     </Button>
   );

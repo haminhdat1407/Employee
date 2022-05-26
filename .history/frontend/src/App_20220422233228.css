@@ -1,0 +1,27 @@
+.header {
+  font-size: 30px;
+  width: 95%;
+  margin: auto;
+  align-items: center;
+  background-color: #ffaa004a;
+}
+.add .ant-form-item-label{
+  overflow: inherit;
+}
+.add .ant-col-14 {
+  max-width: 60.333333%;
+  left: 19px;
+}
+@media only screen and  (max-width: 820px)  {
+  .ant-table-pagination.ant-pagination{
+    float: right !;
+  }
+}
+@media only screen and  (max-width: 390px)  {
+  .ant-table-pagination.ant-pagination{
+    float: right !important;
+  }
+}
+  
+ 
+
